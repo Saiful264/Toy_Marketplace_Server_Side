@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require('dotenv').config()
 const port = process.env.PORT || 5000;
 const app = express();
@@ -27,8 +27,28 @@ async function run() {
     // await client.connect();
     const toyCollection = client.db("toyDB").collection("toys");
 
-    app.get("/toy", (req ,res)=>{
-        res.send("server is runing");
+    app.get("/toy", async(req ,res)=>{
+        const cursor = toyCollection.find();
+        const result = await cursor.toArray();
+        res.send(result);
+    })
+
+    // get specific data by id
+    app.get("/toy/:id", async(req, res)=>{
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)};
+      const result = await toyCollection.find(query).toArray();
+      res.send(result);
+    })
+     // const id = req.params.id;
+      // const query = { _id: new ObjectId(id) }
+      // const result = await bookingCollection.deleteOne(query);
+      // res.send(result);
+    app.delete("/delete/:id", async(req, res)=>{
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)};
+      const result = await toyCollection.deleteOne(query);
+      res.send(result)
     })
 
     app.post("/updata", async(req, res)=>{
