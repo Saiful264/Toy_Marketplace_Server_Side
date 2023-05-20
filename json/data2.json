@@ -1,0 +1,46 @@
+[
+    {
+      "pictureUrl": "https://example.com/toy-image1.jpg",
+      "name": "Alphabet Flashcards",
+      "sellerName": "ABC Toys",
+      "sellerEmail": "abctoys@example.com",
+      "subCategory": "Language Toys",
+      "price": "$9.99",
+      "rating": 4.5,
+      "availableQuantity": 20,
+      "detailDescription": "The Alphabet Flashcards set is a great tool for teaching children the letters of the alphabet. Each card features a letter in both uppercase and lowercase, along with a corresponding illustration. These flashcards are perfect for building vocabulary and letter recognition skills. Suitable for children aged 3 and above."
+    },
+    {
+      "pictureUrl": "https://example.com/toy-image2.jpg",
+      "name": "Counting Abacus",
+      "sellerName": "MathPlay",
+      "sellerEmail": "mathplay@example.com",
+      "subCategory": "Math Toys",
+      "price": "$14.99",
+      "rating": 4.2,
+      "availableQuantity": 15,
+      "detailDescription": "The Counting Abacus is a classic toy that helps children learn counting and basic math concepts. With colorful beads and sliding rods, kids can visually represent numbers and perform simple calculations. This abacus promotes fine motor skills and number sense development. Suitable for children aged 4 and above."
+    },
+    {
+      "pictureUrl": "https://example.com/toy-image3.jpg",
+      "name": "Solar System Puzzle",
+      "sellerName": "SpaceExplorers",
+      "sellerEmail": "spaceexplorers@example.com",
+      "subCategory": "Science Toys",
+      "price": "$19.99",
+      "rating": 4.8,
+      "availableQuantity": 12,
+      "detailDescription": "The Solar System Puzzle is an engaging educational toy that introduces children to the planets and celestial bodies in our solar system. With beautifully illustrated pieces, kids can assemble the puzzle and learn about the different planets. This puzzle encourages spatial reasoning and astronomy knowledge. Suitable for children aged 6 and above."
+    },
+    {
+        "pictureUrl": "https://example.com/toy-image1.jpg",
+        "name": "Colorful Building Blocks",
+        "sellerName": "BlockWorld",
+        "sellerEmail": "blockworld@example.com",
+        "subCategory": "Construction Toys",
+        "price": "$19.99",
+        "rating": 4.2,
+        "availableQuantity": 15,
+        "detailDescription": "The Colorful Building Blocks set is perfect for fostering creativity and imagination in children. With vibrant colors and various shapes, kids can build structures of their own design. These blocks are made of safe and durable materials, ensuring long-lasting fun. Suitable for children aged 3 and above."
+      }
+  ]
