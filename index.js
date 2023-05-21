@@ -28,11 +28,17 @@ async function run() {
     const toyCollection = client.db("toyDB").collection("toys");
 
     // get all data form database
-    app.get("/toy", async(req ,res)=>{
+    app.get("/alltoy", async(req ,res)=>{
         const cursor = toyCollection.find();
-        const result = await cursor.toArray();
+        const result = await cursor.limit(20).toArray();
         res.send(result);
     })
+
+    // app.get("/toys", async(req ,res)=>{
+    //   const query = {price: price};
+    //   const result = await toyCollection.find(query).sort({ price: 1 }).toArray();
+    //   console.log(result);
+    // })
 
     // get specific data by id
     app.get("/toy/:id", async(req, res)=>{
@@ -41,8 +47,18 @@ async function run() {
       const result = await toyCollection.find(query).toArray();
       res.send(result);
     })
-    
 
+    // app.get("/search/:text", async(req, res)=>{
+    //   const text = req.params.text;
+    //   console.log(text);
+    //   const query = { name: { $regex: text, $options: 'i' } }; 
+    //   console.log(query);
+    //   const result = await toyCollection.find(query).toArray();
+    //   console.log(result);
+    //   res.send(result);
+    // })
+    
+    //  delete specific data by id
     app.delete("/delete/:id", async(req, res)=>{
       const id = req.params.id;
       const query = {_id: new ObjectId(id)};
@@ -51,12 +67,22 @@ async function run() {
     })
 
     // insert a data
-    app.post("/updata", async(req, res)=>{
+    app.post("/insert", async(req, res)=>{
       const data = req.body;
       const result = await toyCollection.insertOne(data);
       res.send(result)
     })
 
+    app.get("/toys", async (req, res) => {
+      console.log("me", req.query.email);
+      let query = {};
+      if (req.query?.email) {
+        query = { sellerEmail: req.query.email };
+      }
+      const result = await toyCollection.find(query).toArray();
+      console.log("data" ,result);
+      res.send(result);
+    });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
