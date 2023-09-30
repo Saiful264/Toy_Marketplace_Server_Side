@@ -57,6 +57,8 @@ async function run() {
     //   res.send(result);
     // })
 
+
+    // search item
     // app.get("/search/:text", async(req, res)=>{
     //   const text = req.params.text;
     //   console.log(text);
@@ -66,6 +68,13 @@ async function run() {
     //   console.log(result);
     //   res.send(result);
     // })
+
+    app.get('/search/:text', async(req, res)=>{
+      const search = req.params.text;
+      const query = {title: {$regex: search, $options: "i"}}
+      const result = await toyCollection.find(query).toArray();
+      res.send(result);
+    })
     
     //  delete specific data by id
     app.delete("/delete/:id", async(req, res)=>{
@@ -110,6 +119,7 @@ async function run() {
       res.send(result);
     })
 
+   
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
